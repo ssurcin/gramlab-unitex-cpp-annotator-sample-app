@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gramlab-unitex-cpp-annotator-sample-app", "gramlab-unitex-cpp-annotator-sample-app\gramlab-unitex-cpp-annotator-sample-app.vcxproj", "{ACF6DB60-1151-412F-95B7-4508D4C74E91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0054FFD7-8792-40FC-9985-03FBE52B0A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF6DB60-1151-412F-95B7-4508D4C74E91}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACF6DB60-1151-412F-95B7-4508D4C74E91}.Debug|Win32.Build.0 = Debug|Win32
+		{ACF6DB60-1151-412F-95B7-4508D4C74E91}.Release|Win32.ActiveCfg = Release|Win32
+		{ACF6DB60-1151-412F-95B7-4508D4C74E91}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
