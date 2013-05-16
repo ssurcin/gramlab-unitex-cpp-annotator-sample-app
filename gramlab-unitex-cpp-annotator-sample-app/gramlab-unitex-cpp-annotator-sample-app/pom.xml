@@ -25,15 +25,15 @@
 
   <distributionManagement>
     <repository>
-      <id>kwaga</id>
-      <name>kwaga-releases</name>
-      <url>http://kwaga.artifactoryonline.com/kwaga/ext-releases-local</url>
-    </repository>
-    <snapshotRepository>
-      <id>kwaga</id>
-      <name>kwaga-snapshots</name>
-      <url>http://kwaga.artifactoryonline.com/kwaga/ext-snapshots-local</url>
-    </snapshotRepository>
+			<id>gramlab</id>
+			<name>gramlab-releases</name>
+			<url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab</url>
+		</repository>
+		<snapshotRepository>
+			<id>gramlab-snap</id>
+			<name>gramlab-snapshots</name>
+			<url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab-snap</url>
+		</snapshotRepository>
   </distributionManagement>
 
   <profiles>
