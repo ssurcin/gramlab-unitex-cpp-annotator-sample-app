@@ -110,7 +110,9 @@
     <ClCompile Include="UnitexException.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pom.xml" />
+    <None Include="pom.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="postbuild.bat" />
     <None Include="prebuild.bat" />
   </ItemGroup>
