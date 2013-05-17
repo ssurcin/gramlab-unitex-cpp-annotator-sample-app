@@ -119,6 +119,7 @@
   <ItemGroup>
     <Xml Include="desc\UnitexAnnotatorCpp.xml">
       <DeploymentContent>true</DeploymentContent>
+      <SubType>Designer</SubType>
     </Xml>
   </ItemGroup>
   <ItemGroup>
