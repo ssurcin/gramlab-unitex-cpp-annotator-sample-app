@@ -13,6 +13,7 @@ void tell()
 
 int main(int argc, char* argv[]) 
 {
+	int exitCode = 0;
 	try 
 	{
 		int loglevel = -1;
@@ -28,7 +29,7 @@ int main(int argc, char* argv[])
 			if (!strcmp(argv[2], "-l")) {
 				loglevel = atoi(argv[3]);
 			} else {
-				cerr << "Inexpected option: " << argv[2] << endl;
+				cerr << "Unexpected option: " << argv[2] << endl;
 				tell();
 				return 1;
 			}
@@ -39,17 +40,21 @@ int main(int argc, char* argv[])
 	} 
 	catch (uima::Exception const& e) {
 		cerr << "ExampleApplication " << e << endl;
-		return -1;
+		exitCode = -1;
 	}
 	catch (UnitexException& e) {
 		cerr << "Exception: " << e.what() << endl;
-		return e.getCode();
+		exitCode = e.getCode();
 	}
 
 	/* If we got this far everything went OK */
-	cout << "ExampleApplication: processing finished sucessfully! " << endl;
+	if (!exitCode)
+		cout << "ExampleApplication: processing finished sucessfully! " << endl;
 
-	return 0;
+	cout << "Press a key to exit." << endl;
+	cin.ignore();
+
+	return exitCode;
 }
 
 
