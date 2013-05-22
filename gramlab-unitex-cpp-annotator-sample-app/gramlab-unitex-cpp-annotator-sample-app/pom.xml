@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.kwaga</groupId>
+  <groupId>org.gramlab.kwaga</groupId>
   <artifactId>unitex-uima-cpp-sample-${actual.platform}</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
@@ -8,12 +8,10 @@
     <!-- Use default UTF-8 encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Unitex C++ annotator -->
-    <unitex-annotator-cpp.groupId>com.kwaga</unitex-annotator-cpp.groupId>
-    <unitex-annotator-cpp.artifactId>unitex-uima-cpp-${actual.platform}</unitex-annotator-cpp.artifactId>
+    <unitex-annotator-cpp.groupId>org.gramlab.kwaga</unitex-annotator-cpp.groupId>
+    <unitex-annotator-cpp.artifactId>unitex-uima-cpp-${actual.platform}${buildmode.classifier}</unitex-annotator-cpp.artifactId>
     <unitex-annotator-cpp.version>1.1.3</unitex-annotator-cpp.version>
     <unitex-annotator-cpp.name>unitex-uima-cpp</unitex-annotator-cpp.name>
-    <!-- Build Mode by C++ compiler -->
-    <build.mode>Release</build.mode>
   </properties>
 
   <!--
@@ -25,18 +23,38 @@
 
   <distributionManagement>
     <repository>
-			<id>gramlab</id>
-			<name>gramlab-releases</name>
-			<url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab</url>
-		</repository>
-		<snapshotRepository>
-			<id>gramlab-snap</id>
-			<name>gramlab-snapshots</name>
-			<url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab-snap</url>
-		</snapshotRepository>
+      <id>gramlab</id>
+      <name>gramlab-releases</name>
+      <url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab</url>
+    </repository>
+    <snapshotRepository>
+      <id>gramlab-snap</id>
+      <name>gramlab-snapshots</name>
+      <url>http://parthenon.univ-mlv.fr:8081/nexus/content/repositories/gramlab-snap</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <profiles>
+    <profile>
+      <id>Release</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <buildmode.classifier/>
+        <build.mode>Release</build.mode>
+        <output.lib.directory>lib</output.lib.directory>
+      </properties>
+    </profile>
+    <profile>
+      <id>Debug</id>
+      <properties>
+        <buildmode.classifier>d</buildmode.classifier>
+        <build.mode>Debug</build.mode>
+        <output.lib.directory>lib-dbg</output.lib.directory>
+      </properties>
+    </profile>
+
     <profile>
       <id>win32</id>
       <activation>
@@ -174,7 +192,7 @@
               <artifactId>${unitex-annotator-cpp.artifactId}</artifactId>
               <version>${unitex-annotator-cpp.version}</version>
               <type>zip</type>
-              <outputDirectory>lib</outputDirectory>
+              <outputDirectory>${output.lib.directory}</outputDirectory>
               <!-- unpack everything except the descriptors -->
               <excludes>**/*.xml</excludes>
               <!-- <includes>**/*.dll,**/*.exe</includes> -->
