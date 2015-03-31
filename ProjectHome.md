@@ -1,0 +1,1 @@
+This application demonstrates how to use the Unitex C++ UIMA annotator developed within the framework of the GRAMLAB project.
